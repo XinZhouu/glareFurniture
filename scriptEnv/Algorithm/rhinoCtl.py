@@ -1,12 +1,11 @@
 import rhinoscriptsyntax as rs
-import scriptcontext as sc
 import Rhino
 
 
 #########################################################
 
 # this class use rhinocommon to control rhino
-class rhCTL():
+class rhCTL:
     
     # initiate an empty dic
     dic = dict()
@@ -49,13 +48,6 @@ class rhCTL():
                     # write it into the dic
                     if layer not in rhCTL.dic:
                         rhCTL.dic[layer] = objList
-                        
-                        #print('objGUIDs by layer: ', rhCTL.dic)
-                # else:
-                #     # loop through this child list again
-                #     rhCTL.findObjects(layer)
-                    
-    # do this recursively
                     
                     
     @staticmethod
@@ -87,4 +79,5 @@ class rhUtil():
     def identifyModelUnit():
         unit = Rhino.RhinoDoc.ActiveDoc.ModelUnitSystem.ToString()
         return unit
+
     

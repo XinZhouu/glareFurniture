@@ -1,4 +1,5 @@
 from ladybug.epw import EPW
+from ladybug.wea import Wea
 
 '''
 future improvement:
@@ -63,11 +64,12 @@ class epw:
     liquid_precipitation_quantity
     sky_temperature
     '''
-#######################################################################
-# TESTING
-#######################################################################
-
-# epwFile = '.\\file\\weather\\USA_MA_Boston-Logan.Intl.AP.725090_TMY3.epw'
-# loc = epw.extractData(epwFile)
-# print(type(loc))
-              
+    
+    @staticmethod
+    def epwToWea(epwFile, timeStep, hoys):
+        timeStep = 1 if timeStep is None else timeStep
+        wea = Wea.from_epw_file(epwFile, timeStep)
+        if len(hoys) != 0:
+            wea = wea.filter_by_hoys(hoys)      
+            
+        return wea  

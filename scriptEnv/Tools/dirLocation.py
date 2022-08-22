@@ -16,3 +16,4 @@ class Dir:
     results = winRt + '\\results'
     data = winRt + '\\data'
     model = winRt + '\\model'
+    epwPath = model + '\\weather\\USA_MA_Boston-Logan.Intl.AP.725090_TMY3.epw'
