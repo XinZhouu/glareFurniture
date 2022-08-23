@@ -36,6 +36,5 @@ class win:
         subprocess.call(cmd,
                         executable = Dir.CMD,
                         shell = True,
-                        cwd = cwd)         
-        
+                        cwd = cwd)    
         

@@ -63,4 +63,6 @@ class battery:
                 UDI_low = recipe.output_value_by_name('udi-lower', project_folder)
                 UDI_up = recipe.output_value_by_name('udi-upper', project_folder)
             except Exception:
-                raise Exception(recipe.failure_message(project_folder))            
+                raise Exception(recipe.failure_message(project_folder))  
+            return project_folder
+                   
