@@ -38,10 +38,36 @@ class osUtil:
     def searchFile(dic):
         for folderPath in dic:
             keyword = dic[folderPath]
-            
             for subPath in (os.scandir(folderPath)):
                 if subPath.is_file():
                     fileName = subPath.name
-                    if keyword in fileName:
-                        return subPath.path
+                    if keyword[0] in fileName:
+                        return subPath.path, keyword[1]
+                    
+                    
+    @staticmethod                
+    def searchUseListDir(dic):
+        for folderPath in dic:
+            keyword = dic[folderPath]
+
+            lst = os.listdir(folderPath)
+            for fileName in lst:
+                
+                path = folderPath + '\\' + fileName
+                if os.path.isfile(path):
+                    if keyword[0] in fileName:
+                        return path, keyword[1]
+        
+                    
+                    
+                    
+class pyUtil:
+    
+    # cannot read .ill file
+    @staticmethod
+    def readSimpleFile(filePath):
+        with open(filePath, 'r') as f:
+            lines = f.readlines()
+            lines = [line.replace('\n', '') for line in lines]
+        return lines
             

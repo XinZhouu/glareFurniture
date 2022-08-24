@@ -1,9 +1,15 @@
+import clr
+clr.AddReferenceByName("Grasshopper")
+import Grasshopper
+
 from ladybug.graphic import GraphicContainer
 from ladybug_rhino.togeometry import to_mesh3d
 from ladybug_rhino.fromgeometry import from_mesh3d
 from ladybug_rhino.fromobjects import legend_objects
 from ladybug_rhino.text import text_objects
 from ladybug_rhino.color import color_to_color
+
+
 
 
 class hbVis:
@@ -13,8 +19,7 @@ class hbVis:
         # generate Ladybug objects
         lb_mesh = to_mesh3d(mesh)
         if offsetDomain:
-            dom_st, dom_end = offsetDomain
-            lb_mesh = lb_mesh.height_field_mesh(metricValues, (dom_st, dom_end))
+            lb_mesh = lb_mesh.height_field_mesh(metricValues, offsetDomain)
         graphic = GraphicContainer(metricValues, lb_mesh.min, lb_mesh.max, legendPara)
 
         # generate titles
@@ -31,4 +36,6 @@ class hbVis:
         legend = legend_objects(graphic.legend)
         colors = [color_to_color(col) for col in lb_mesh.colors]
         legend_par = graphic.legend_parameters
+        
+        return mesh, legend, colors, legend_par
         

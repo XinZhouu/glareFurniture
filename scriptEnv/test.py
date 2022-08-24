@@ -27,34 +27,38 @@ import subprocess
 #                     shell = True,
 #                     cwd = cwd)   
     
-cwd = 'C:/Users/zxin1/Desktop/research/HB'
+# cwd = 'C:/Users/zxin1/Desktop/research/HB'
 
-cmd = 'cp -r ' + './file/objData/aperture.mat' + ' ./raytraverse/aperture.mat'
+# cmd = 'cp -r ' + './file/objData/aperture.mat' + ' ./raytraverse/aperture.mat'
 
-bashDir = 'C:/Program Files/Git/bin/bash.exe'
-subprocess.call([bashDir, '-c', cmd], cwd = cwd)
+# bashDir = 'C:/Program Files/Git/bin/bash.exe'
+# subprocess.call([bashDir, '-c', cmd], cwd = cwd)
 
-# set PYTHONPATH=%PYTHONPATH%;C:\Users\zxin1\Desktop\Glare\scriptEnv\
+# # set PYTHONPATH=%PYTHONPATH%;C:\Users\zxin1\Desktop\Glare\scriptEnv\
     
-    '''
-rhino.inside works in headless mode: 
-    It is running in the back and there is no 
-    GUI showing the process.
-'''
-import rhinoinside
-rhinoinside.load('C:\Program Files\Rhino 7\System')
-################################################################################
+#     '''
+# rhino.inside works in headless mode: 
+#     It is running in the back and there is no 
+#     GUI showing the process.
+# '''
+# import rhinoinside
+# rhinoinside.load('C:\Program Files\Rhino 7\System')
+# ################################################################################
 
-import System
-import Rhino
+# import System
+# import Rhino
 
-dummy_out = System.Int32(0)
+# dummy_out = System.Int32(0)
 
-# pts = System.Collections.Generic.List[Rhino.Geometry.Point3d]()
-# pts.Add(Rhino.Geometry.Point3d(0.0,0.0,0.0))
-# pts.Add(Rhino.Geometry.Point3d(1.0,0.0,0.0))
-# pts.Add(Rhino.Geometry.Point3d(1.5,2.0,0.0))
+# # pts = System.Collections.Generic.List[Rhino.Geometry.Point3d]()
+# # pts.Add(Rhino.Geometry.Point3d(0.0,0.0,0.0))
+# # pts.Add(Rhino.Geometry.Point3d(1.0,0.0,0.0))
+# # pts.Add(Rhino.Geometry.Point3d(1.5,2.0,0.0))
 
-# crv = Rhino.Geometry.Curve.CreateInterpolatedCurve(pts,3)
-# print (crv.GetLength())
+# # crv = Rhino.Geometry.Curve.CreateInterpolatedCurve(pts,3)
+# # print (crv.GetLength())
 
+
+dic = {'gh':3}
+for key in dic:
+    print(key)

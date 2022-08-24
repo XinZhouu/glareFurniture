@@ -1,7 +1,16 @@
+#! this script attempts to connect rhino, honeybee and grasshopper
+
+import clr
+clr.AddReferenceByName("Grasshopper")
+import Grasshopper
+
 import os
 from honeybee.model import Model
 from lbt_recipes.recipe import Recipe
 from lbt_recipes.settings import RecipeSettings
+from ladybug_rhino.grasshopper import recipe_result
+
+
 
 '''
 # precompiled recipe names:
@@ -40,6 +49,7 @@ class battery:
         
     @staticmethod
     def annualDaylight(hbModel, wea, north, thresholds, schedule, gridFilter, radPara, run):
+        
         if run == True:
             # create the recipe and set the input arguments
             recipe = Recipe('annual-daylight')
@@ -62,7 +72,16 @@ class battery:
                 UDI = recipe.output_value_by_name('udi', project_folder)
                 UDI_low = recipe.output_value_by_name('udi-lower', project_folder)
                 UDI_up = recipe.output_value_by_name('udi-upper', project_folder)
+                
+                ghResults = recipe_result(results)
+                ghDA = recipe_result(DA)
+                ghCDA = recipe_result(cDA)
+                ghUDI = recipe_result(UDI)
+                ghUDILOW = recipe_result(UDI_low)
+                ghUDIUP = recipe_result(UDI_up)
+                
+                ghLst = [ghResults, ghDA, ghCDA, ghUDI, ghUDILOW, ghUDIUP]
             except Exception:
                 raise Exception(recipe.failure_message(project_folder))  
-            return project_folder
+            return project_folder, results, DA, cDA, UDI, UDI_low, UDI_up, ghLst
                    

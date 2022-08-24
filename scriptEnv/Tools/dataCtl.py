@@ -1,7 +1,21 @@
+import sys
+sys.path.append('C:\\Users\\zxin1\\Desktop\\Glare\\scriptEnv')
+
+from Tools.mathUsr import *
 import subprocess
 import os
 
 class strUtil:
+    
+    @staticmethod
+    def batchFromStrToFloat(lst):
+        newLst = []
+        for string in lst:
+            num = float(string)
+            num = mathUsr.roundHalfUp(num)
+            newLst.append(num)
+        return newLst
+            
     
     @staticmethod
     # general
