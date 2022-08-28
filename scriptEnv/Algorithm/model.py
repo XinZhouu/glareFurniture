@@ -6,10 +6,7 @@ STEP:1 prepare model file for simulation
             data to rhino
 '''
 
-import sys
-sys.path.append('C:\\Users\\zxin1\\Desktop\\Glare\\scriptEnv')
-
-from rhinoCtl import rhCTL
+from RhinoUsr.rhinoCtl import rhCTL
 from Tools.dataCtl import *
 from HoneybeeUsr.transGeo import *
 
@@ -18,9 +15,9 @@ class rhinoSpace:
     
     # this function assumes that rhino layers of furniture are not on
     @staticmethod
-    def accessRhinoLayers():
+    def accessRhinoLayers(layerName):
         # get objects in each layer that is on
-        rhCTL.objByLayers()
+        rhCTL.objByLayers(layerName)
         objDic = rhCTL.dic
 
         # parsing objDic

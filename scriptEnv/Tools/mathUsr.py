@@ -13,3 +13,11 @@ class mathUsr:
         # See other rounding options here:
         # https://docs.python.org/3/library/decimal.html#rounding-modes
         return int(decimal.Decimal(d).to_integral_value(rounding=rounding))
+    
+    @staticmethod
+    def batchRoundHalfUp(lst):
+        newLst = []
+        for num in lst:
+            new = mathUsr.roundHalfUp(num)
+            newLst.append(new)
+        return newLst

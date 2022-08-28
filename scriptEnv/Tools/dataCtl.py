@@ -1,7 +1,4 @@
-import sys
-sys.path.append('C:\\Users\\zxin1\\Desktop\\Glare\\scriptEnv')
-
-from Tools.mathUsr import *
+from mathUsr import *
 import subprocess
 import os
 
